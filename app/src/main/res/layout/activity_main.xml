@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/tv_app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="TIC TAC TOE"
+        android:textColor="@color/primary_color"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed" />
+
+    <!-- Game Icon/Logo -->
+    <ImageView
+        android:id="@+id/iv_game_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/tv_app_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+
+        android:contentDescription="Tic Tac Toe Game Icon" />
+
+    <!-- Players Section Container -->
+
+    <!-- Game Rules Text -->
+
+    <!-- Version/Footer -->
+    <LinearLayout
+        android:id="@+id/ll_players_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_game_icon"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/rounded_card_background"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Enter Players Title -->
+        <TextView
+            android:id="@+id/tv_enter_players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:text="Enter Player Names"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Player 1 Input Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_player1_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/rounded_card_background"
+                android:gravity="center"
+                android:minWidth="40dp"
+                android:padding="8dp"
+                android:text="X"
+                android:textColor="@color/player_x_color"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Player 1 Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player1_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:maxLength="15"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!-- Player 2 Input Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_player2_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/rounded_card_background"
+                android:gravity="center"
+                android:minWidth="40dp"
+                android:padding="8dp"
+                android:text="O"
+                android:textColor="@color/player_o_color"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Player 2 Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player2_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:maxLength="15"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!-- Start Game Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_start_game"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/start_button_background"
+            android:elevation="2dp"
+            android:text="START GAME"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_players_container"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
+        android:layout_marginBottom="16dp"
+        android:text="v1.0"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</RelativeLayout>
