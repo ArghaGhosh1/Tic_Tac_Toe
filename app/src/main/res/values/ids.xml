@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv_app_title" type="id" />
+    <item name="iv_game_icon" type="id" />
+    <item name="ll_players_container" type="id" />
+    <item name="tv_enter_players" type="id" />
+</resources>
