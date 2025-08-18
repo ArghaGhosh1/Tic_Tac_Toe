@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tic tac toe</string>
+    <string name="tic_tac_toe">TIC TAC TOE</string>
+    <string name="super_power_feature">⚡ SUPER POWER FEATURE ⚡</string>
+    <string name="SuperPower">Play 3+ rounds to unlock super powers! Win 3 rounds in a row to earn an EXTRA MOVE for future rounds.</string>
+    <string name="SuperPowerTip">💡 Tip: Use your extra move wisely to block opponents!</string>
+</resources>
