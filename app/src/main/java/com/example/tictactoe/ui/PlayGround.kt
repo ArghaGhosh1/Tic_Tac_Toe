@@ -1,5 +1,8 @@
 package com.example.tictactoe.ui
 
+import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -19,9 +22,8 @@ class PlayGround : AppCompatActivity() {
     private lateinit var player2WinStatus: TextView
     private var gameBoard = Array(3) { Array(3) { "" } }
     private lateinit var whoesMove: TextView
-    private lateinit var player1Extra: TextView
-    private lateinit var player2Extra: TextView
-
+    private lateinit var player1Extra: Button
+    private lateinit var player2Extra: Button
     private var currentPlayer = "X"
     private lateinit var viewPLayer1: TextView
     private lateinit var viewPalyer2: TextView
@@ -46,7 +48,6 @@ class PlayGround : AppCompatActivity() {
     private lateinit var cell20: Button
     private lateinit var cell21: Button
     private lateinit var cell22: Button
-    private lateinit var useExtra: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +71,6 @@ class PlayGround : AppCompatActivity() {
         streak2 = findViewById(R.id.tv_player2_streak)
         player1Extra = findViewById(R.id.tv_player1_extra_moves)
         player2Extra = findViewById(R.id.tv_player2_extra_moves)
-        useExtra = findViewById(R.id.btn_use_extra_move)
 
         cell00 = findViewById(R.id.btn_cell_0_0)
         cell01 = findViewById(R.id.btn_cell_0_1)
@@ -94,9 +94,9 @@ class PlayGround : AppCompatActivity() {
         viewPalyer2.text = player2
         whoesMove.text = player1
 
-        fun makeMove(row: Int, col: Int, button: Button,player: String, clicked: String) {
+        fun makeMove(row: Int, col: Int, button: Button, player: String, clicked: String) {
 
-            if(clicked == "click"){
+            if (clicked == "click") {
                 if (gameBoard[row][col].isEmpty()) {
 
                     // Update game array and UI
@@ -149,80 +149,81 @@ class PlayGround : AppCompatActivity() {
         }
 
 
-
-
         fun nextRound() {
             currentRound++
             currentRoundTextView.text = "Round $currentRound"
             if (currentRound > totalRounds) {
-                finish()
+                Intent(this@PlayGround, ResultActivity::class.java).also {
+                    it.putExtra("player1", player1)
+                    it.putExtra("player2", player2)
+                    it.putExtra("player1Score", player1Wins)
+                    it.putExtra("player2Score", player2Wins)
+                    it.putExtra("totalRounds", totalRounds)
+                    startActivity(it)
+                }
             }
 
         }
-
-
-
-
         cell00.setOnClickListener {
-            makeMove(0, 0, cell00,"hi","na")
+            makeMove(0, 0, cell00, "hi", "na")
         }
         cell01.setOnClickListener {
-            makeMove(0, 1, cell01,"hi","na")
+            makeMove(0, 1, cell01, "hi", "na")
         }
         cell02.setOnClickListener {
-            makeMove(0, 2, cell02,"hi","na")
+            makeMove(0, 2, cell02, "hi", "na")
         }
         cell10.setOnClickListener {
-            makeMove(1, 0, cell10,"hi","na")
+            makeMove(1, 0, cell10, "hi", "na")
         }
         cell11.setOnClickListener {
-            makeMove(1, 1, cell11,"hi","na")
+            makeMove(1, 1, cell11, "hi", "na")
         }
         cell12.setOnClickListener {
-            makeMove(1, 2, cell12,"hi","na")
+            makeMove(1, 2, cell12, "hi", "na")
         }
         cell20.setOnClickListener {
-            makeMove(2, 0, cell20,"hi","na")
+            makeMove(2, 0, cell20, "hi", "na")
         }
         cell21.setOnClickListener {
-            makeMove(2, 1, cell21,"hi","na")
+            makeMove(2, 1, cell21, "hi", "na")
         }
         cell22.setOnClickListener {
-            makeMove(2, 2, cell22,"hi","na")
+            makeMove(2, 2, cell22, "hi", "na")
         }
         nextRound.setOnClickListener {
             resetBoard()
             nextRound()
         }
 
-        fun backToBasicsX(){
+        fun backToBasicsX() {
 
             cell00.setOnClickListener {
-                makeMove(0, 0, cell00,"hi","na")
+                makeMove(0, 0, cell00, "hi", "na")
             }
             cell01.setOnClickListener {
-                makeMove(0, 1, cell01,"hi","na")
+                makeMove(0, 1, cell01, "hi", "na")
             }
             cell02.setOnClickListener {
-                makeMove(0, 2, cell02,"hi","na")
+                makeMove(0, 2, cell02, "hi", "na")
             }
             cell10.setOnClickListener {
-                makeMove(1, 0, cell10,"hi","na")
+                makeMove(1, 0, cell10, "hi", "na")
             }
             cell11.setOnClickListener {
-                makeMove(1, 1, cell11,"hi","na")
+                makeMove(1, 1, cell11, "hi", "na")
             }
             cell12.setOnClickListener {
-                makeMove(1, 2, cell12,"hi","na")
+                makeMove(1, 2, cell12, "hi", "na")
             }
             cell20.setOnClickListener {
-                makeMove(2, 0, cell20,"hi","na")
+                makeMove(2, 0, cell20, "hi", "na")
             }
             cell21.setOnClickListener {
-                makeMove(2, 1, cell21,"hi","na")
+                makeMove(2, 1, cell21, "hi", "na")
             }
             cell22.setOnClickListener {
-                makeMove(2, 2, cell22,"hi","na")
+                makeMove(2, 2, cell22, "hi", "na")
             }
             nextRound.setOnClickListener {
                 resetBoard()
@@ -230,34 +231,34 @@ class PlayGround : AppCompatActivity() {
             }
         }
 
-        fun backToBasicsO(){
+        fun backToBasicsO() {
 
             cell00.setOnClickListener {
-                makeMove(0, 0, cell00,"hi","na")
+                makeMove(0, 0, cell00, "hi", "na")
             }
             cell01.setOnClickListener {
-                makeMove(0, 1, cell01,"hi","na")
+                makeMove(0, 1, cell01, "hi", "na")
             }
             cell02.setOnClickListener {
-                makeMove(0, 2, cell02,"hi","na")
+                makeMove(0, 2, cell02, "hi", "na")
             }
             cell10.setOnClickListener {
-                makeMove(1, 0, cell10,"hi","na")
+                makeMove(1, 0, cell10, "hi", "na")
             }
             cell11.setOnClickListener {
-                makeMove(1, 1, cell11,"hi","na")
+                makeMove(1, 1, cell11, "hi", "na")
             }
             cell12.setOnClickListener {
-                makeMove(1, 2, cell12,"hi","na")
+                makeMove(1, 2, cell12, "hi", "na")
             }
             cell20.setOnClickListener {
-                makeMove(2, 0, cell20,"hi","na")
+                makeMove(2, 0, cell20, "hi", "na")
             }
             cell21.setOnClickListener {
-                makeMove(2, 1, cell21,"hi","na")
+                makeMove(2, 1, cell21, "hi", "na")
             }
             cell22.setOnClickListener {
-                makeMove(2, 2, cell22,"hi","na")
+                makeMove(2, 2, cell22, "hi", "na")
             }
             nextRound.setOnClickListener {
                 resetBoard()
@@ -267,9 +268,17 @@ class PlayGround : AppCompatActivity() {
 
 
 
-        useExtra.setOnClickListener {
+        player2Extra.setOnClickListener {
 
-            if(player1ExtraMoves <=0 || player2ExtraMoves<= 0 ) {
+            if (player2ExtraMoves == 0) {
+                Toast.makeText(
+                    this@PlayGround,
+                    "You don't have any extra moves",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+            } else if (player2ExtraMoves > 0)
+            {
                 if (whoesMove.text == player1) {
                     whoesMove.text = player2
                     val player1Type = "O"
@@ -278,43 +287,68 @@ class PlayGround : AppCompatActivity() {
                     cell00.setOnClickListener {
                         makeMove(0, 0, cell00, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell01.setOnClickListener {
                         makeMove(0, 1, cell01, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell02.setOnClickListener {
                         makeMove(0, 2, cell02, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell10.setOnClickListener {
                         makeMove(1, 0, cell10, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell11.setOnClickListener {
                         makeMove(1, 1, cell11, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell12.setOnClickListener {
                         makeMove(1, 2, cell12, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell20.setOnClickListener {
                         makeMove(2, 0, cell20, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell21.setOnClickListener {
                         makeMove(2, 1, cell21, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     cell22.setOnClickListener {
                         makeMove(2, 2, cell22, player1Type, "click")
                         backToBasicsO()
+                        resetRound()
                     }
                     player2ExtraMoves--
-                    player2Extra.text = "⚡ Extra Moves: $player2ExtraMoves"
+                    player2Extra.text = "Extra Moves: $player2ExtraMoves"
+                }
+                selectedRound(player2Extra)
+            }
 
-                } else {
+        }
+
+        player1Extra.setOnClickListener {
+
+            if (player1ExtraMoves == 0) {
+                Toast.makeText(
+                    this@PlayGround,
+                    "You don't have any extra moves",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (player1ExtraMoves > 0)
+            {
+
+                if (whoesMove.text == player2) {
                     whoesMove.text = player1
                     val player2Type = "X"
                     whoesMove.setTextColor(ContextCompat.getColor(this, R.color.player_x_color))
@@ -322,58 +356,55 @@ class PlayGround : AppCompatActivity() {
                     cell00.setOnClickListener {
                         makeMove(0, 0, cell00, player2Type, "click")
                         backToBasicsX()
+                        resetRound()
                     }
                     cell01.setOnClickListener {
                         makeMove(0, 1, cell01, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     cell02.setOnClickListener {
                         makeMove(0, 2, cell02, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     cell10.setOnClickListener {
                         makeMove(1, 0, cell10, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     cell11.setOnClickListener {
                         makeMove(1, 1, cell11, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     cell12.setOnClickListener {
                         makeMove(1, 2, cell12, player2Type, "click")
                         backToBasicsX()
+                        resetRound()
 
                     }
                     cell20.setOnClickListener {
                         makeMove(2, 0, cell20, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     cell21.setOnClickListener {
                         makeMove(2, 1, cell21, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     cell22.setOnClickListener {
                         makeMove(2, 2, cell22, player2Type, "click")
                         backToBasicsX()
-
+                        resetRound()
                     }
                     player1ExtraMoves--
-                    player1Extra.text = "⚡ Extra Moves: $player1ExtraMoves"
-
+                    player1Extra.text = "Extra Moves: $player1ExtraMoves"
                 }
-            } else{
-                Toast.makeText(this@PlayGround,"You don't have any extra moves", Toast.LENGTH_SHORT).show()
+                selectedRound(player1Extra)
             }
         }
-
-
-
 
         //END
     }
@@ -499,14 +530,14 @@ class PlayGround : AppCompatActivity() {
     private fun player1SuperPower() {
         if (player1Streak % 3 == 0) {
             player1ExtraMoves++
-            player1Extra.text = "⚡ Extra Moves: $player1ExtraMoves"
+            player1Extra.text = "Extra Moves: $player1ExtraMoves"
         }
     }
 
     private fun player2SuperPower() {
         if (player2Streak % 3 == 0) {
             player2ExtraMoves++
-            player2Extra.text = "⚡ Extra Moves: $player2ExtraMoves"
+            player2Extra.text = "Extra Moves: $player2ExtraMoves"
         }
     }
 
@@ -527,6 +558,27 @@ class PlayGround : AppCompatActivity() {
         }
     }
 
-  }
+    fun resetRound() {
+        val rounds = mutableListOf<Button>()
+
+        rounds.add(player1Extra)
+        rounds.add(player2Extra)
+
+        for (round in rounds) {
+            round.setTextColor(Color.BLACK)
+            round.setTypeface(round.typeface, Typeface.BOLD)
+            round.background = ContextCompat.getDrawable(this, R.color.round_button)
+        }
+    }
+
+    fun selectedRound(button: Button) {
+        resetRound()
+        button.setTextColor(Color.GRAY)
+        button.setTypeface(button.typeface, Typeface.BOLD)
+        button.background = ContextCompat.getDrawable(this, R.drawable.selected_rounds)
+
+
+    }
+}
 
 
