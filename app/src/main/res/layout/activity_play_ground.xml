@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/background_color"
-            android:padding="12dp"
+            android:background="@drawable/rounded_card_background"
             android:layout_marginBottom="16dp">
 
             <!-- Current Round Info -->
@@ -29,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginLeft="125sp">
 
                 <TextView
                     android:id="@+id/tv_current_round"
@@ -38,27 +38,20 @@
                     android:text="Round 1"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:padding="3dp"/>
 
                 <TextView
                     android:id="@+id/tv_total_rounds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     tools:text="of 5" />
 
             </LinearLayout>
 
-            <!-- VS Section -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="VS"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
+
 
             <!-- Super Power Indicator -->
             <LinearLayout
@@ -68,22 +61,9 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <TextView
-                    android:id="@+id/tv_super_power_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⚡ Extra Moves"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tv_extra_moves_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Available: 0"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="10sp" />
+
+
 
             </LinearLayout>
 
@@ -94,8 +74,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@drawable/background_color"
-            android:padding="16dp"
+            android:background="@drawable/rounded_card_background"
+            android:padding="10dp"
             android:layout_marginBottom="20dp">
 
             <!-- Player 1 Score -->
@@ -111,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Player 1"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -137,12 +117,32 @@
                     android:id="@+id/tv_player1_streak"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:text="Streak: 0"
                     android:textColor="@color/black"
                     android:textSize="12sp"
-                    android:layout_marginTop="2dp" />
+                    android:padding="6dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tv_player1_extra_moves"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/round_button"
+                    android:text="Extra Moves: 0"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:padding="10dp"/>
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical" />
 
             <!-- Player 2 Score -->
             <LinearLayout
@@ -157,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Player 2"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -186,7 +186,18 @@
                     android:layout_marginTop="2dp"
                     android:text="Streak: 0"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:padding="6dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tv_player2_extra_moves"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/round_button"
+                    android:text="Extra Moves: 0"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:padding="10dp"/>
 
             </LinearLayout>
 
@@ -198,8 +209,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:background="@drawable/background_color"
-            android:padding="12dp"
+            android:background="@drawable/rounded_card_background"
+            android:padding="8dp"
             android:layout_marginBottom="20dp">
 
             <TextView
@@ -213,12 +224,12 @@
             <TextView
                 android:id="@+id/tv_current_player"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Player 1 (X)"
+                android:layout_height="19dp"
+                android:layout_marginStart="4dp"
+                tools:text="Player 1 (X)"
                 android:textColor="@color/player_x_color"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginStart="4dp" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_extra_move_indicator"
@@ -262,7 +273,7 @@
                     android:layout_column="0"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -273,7 +284,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -284,7 +295,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -296,7 +307,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -307,7 +318,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -318,7 +329,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -330,7 +341,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -341,7 +352,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -352,7 +363,7 @@
                     android:layout_height="100dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="2dp"
-                    android:background="@color/yellow"
+                    android:background="@drawable/selected_rounds"
                     android:textColor="@color/text_primary"
                     android:textSize="36sp"
                     android:textStyle="bold" />
@@ -361,18 +372,8 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_game_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Make your move!"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="@color/yellow"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+
+
 
         <!-- Game Control Buttons -->
         <LinearLayout
@@ -381,64 +382,26 @@
             android:orientation="horizontal"
             android:layout_marginBottom="16dp">
 
-            <!-- Use Extra Move Button -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_use_extra_move"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_weight="1"
-                android:text="⚡ USE EXTRA MOVE"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@color/yellow"
-                android:layout_marginEnd="8dp"
-                android:enabled="false" />
 
-            <!-- Reset Round Button -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_next_round"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
+                android:layout_width="347dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:background="@color/yellow"
                 android:text="NEXT ROUND"
-                android:visibility="invisible"
                 android:textColor="@color/text_primary"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:background="@color/yellow"
-                android:layout_marginStart="8dp" />
+                android:visibility="visible" />
 
-        </LinearLayout>
-
-        <!-- Bottom Navigation -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <!-- Back to Menu Button -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_back_to_menu"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="← MENU"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                android:background="@color/yellow"
-                android:paddingHorizontal="16dp" />
-
-            <!-- Spacer -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
+            <!-- Reset Round Button -->
 
 
         </LinearLayout>
+
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>
