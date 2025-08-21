@@ -15,7 +15,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tictactoe.R
 
-class Number_Of_Rounds : AppCompatActivity() , View.OnClickListener {
+class Number_Of_Rounds : AppCompatActivity() , View.OnClickListener
+{
 
     private lateinit var player1: TextView
     private lateinit var player2: TextView
@@ -29,7 +30,8 @@ class Number_Of_Rounds : AppCompatActivity() , View.OnClickListener {
     private var nummberOfRounds = 0
     private lateinit var startTour : Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_number_of_rounds)
